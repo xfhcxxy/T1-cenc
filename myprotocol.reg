@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\myprotocol]
+@="myprotocol Protocol"
+"URL Protocol"=""
+[HKEY_CLASSES_ROOT\myprotocol\DefaultIcon]
+@="E:\\class\\bigdata-cenc\\python\\draw.exe"
+[HKEY_CLASSES_ROOT\myprotocol\shell]
+@=""
+[HKEY_CLASSES_ROOT\myprotocol\shell\open]
+@=""
+[HKEY_CLASSES_ROOT\myprotocol\shell\open\command]
+@="\"E:\\class\\bigdata-cenc\\python\\draw.exe\" \"%1\" "

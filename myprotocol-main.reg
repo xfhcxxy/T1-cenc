@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\myprotocol-main]
+@="myprotocol-main Protocol"
+"URL Protocol"=""
+[HKEY_CLASSES_ROOT\myprotocol-main\DefaultIcon]
+@="E:\\class\\bigdata-cenc\\python\\main.exe"
+[HKEY_CLASSES_ROOT\myprotocol-main\shell]
+@=""
+[HKEY_CLASSES_ROOT\myprotocol-main\shell\open]
+@=""
+[HKEY_CLASSES_ROOT\myprotocol-main\shell\open\command]
+@="\"E:\\class\\bigdata-cenc\\python\\main.exe\" \"%1\" "
