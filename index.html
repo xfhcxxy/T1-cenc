@@ -15,19 +15,6 @@
       .BMap_scaleTxt{
         color: #fff!important;
       }
-      button{
-	            background-color:#6f6af6;
-	            color:black;
-	            width: 80px;
-	            height: 20px;
-	            border:0;
-	            font-size: 16px;
-	            box-sizing: content-box;
-               border-radius: 5px;
-            }
-            button:hover{
-	            background-color: #a54b4a;
-            }
     </style>
   </head>
   <body>
@@ -138,46 +125,19 @@
           <iframe id="on_show" src="python/map/heat_map_dynamic.html" width="1200px" height="700px" scrolling="No"></iframe>
 
           <div class="tongjiList">
-            <div>
-              <div  class="col-md-3" onclick="change_to_line_time_to_num()" style="margin: 0 15px;position: relative;">
-                <div style="justify-content: center;position: relative;top: 22px;" class="pfTitle">
-                  <img style="margin-right: 10px;" src="img/xfjs.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                  <span class="titleText">时间-地震次数关系</span>
-                </div>
-
-                <!--  xw08
-                <iframe src="python/map/line_time_to_num.html" frameborder=0 allowfullscreen></iframe>
-                -->
-
-              
+            <div class="bt_row1" style="float:left;" onclick="change_to_line_m_to_num()">
+              <div class="tri1_row"></div>
+              <div class="box1_row">
+                <span class="titleText" style="font-size: 20px;">震级-次数</span>
               </div>
-              <div class="comLine"></div>
-              <div class="col-md-3" onclick="change_to_line_m_to_num()" style="margin: 0 15px;position: relative;">
-                <div style="justify-content: center;position: relative; top: 22px;
-            " class="pfTitle">
-                  <img style="margin-right: 10px;" src="img/ldbj.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                  <span class="titleText">震级-地震次数关系</span>
-                </div>
-
-                <!--  xw08
-                <iframe src="python/map/line_time_to_num.html" frameborder=0 allowfullscreen></iframe>
-                  -->
-
+              <div class="tri2_row"></div>
+            </div>
+            <div class="bt_row2"  style="float:left;transform: translateX(-100px);" onclick="change_to_word_cloud()">
+              <div class="rtri1_row"></div>
+              <div class="box1_row">
+                <span class="titleText" style="font-size: 20px;">地震云图</span>
               </div>
-              <div class="comLine"></div>
-              <div class="col-md-3" onclick="change_to_word_cloud()" style="margin: 0 15px;position: relative;">
-                <div style="justify-content: center;position: relative; top: 22px;" class="pfTitle">
-                  <img style="margin-right: 10px;" src="img/jgbj.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                  <span class="titleText">地点云图</span>
-                </div>
-
-                <!--  xw08
-                <iframe src="python/map/word_cloud.html" frameborder=0 allowfullscreen></iframe>
-                -->
-
-              </div>
-              <div class="comLine"></div>
-              
+              <div class="rtri2_row"></div>
             </div>
           </div>
         </div>
