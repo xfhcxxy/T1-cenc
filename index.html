@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="./img/favicon.ico" />
     <!-- <link rel="stylesheet" href="./fonts/font.css" /> -->
+
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/jq22.css" />
@@ -23,6 +24,7 @@
         <img
           style="width: 80px;height: 84px;margin-right: 20px;"
           src="img/logo.png"
+          alt="更多资源：https://gitee.com/iGaoWei/big-data-view"
         />
         <img src="img/zgdztwdsjpt.png" alt="对中国地震台网进行大数据分析" />
         <div class="dateBox">
@@ -34,27 +36,49 @@
         </div>
       </div>
       <div class="content">
+
         <div class="leftBox col-md-1">
-          <div style="width:100px ;height: 400px;" class="pingfen">
+          <div class="pot_all_pot" onclick="change_to_pot_all_pot()">
             <div>
-              <div class="pfTitle">
-                <img src="img/aqpf.png"/>
-                <span class="titleText">地图展示</span>
+              <div class='tri1'>
+                
               </div>
-              <button onclick="change_to_pot_all_pot()">点图</button>
-              <button onclick="change_to_pot_market_pot()">带标记点图</button>
-              <button onclick="change_to_heat_map_static()">静态热力图</button>
-              <button onclick="change_to_heat_map_dynamic()">动态热力图</button>
+
+              <div class='box'>
+                <!-- xw08
+                  <div class="pfTitle">
+                  <img src="img/aqpf.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
+                  <span class="titleText">地图展示</span>
+                </div>
+
+                <button onclick="change_to_pot_all_pot()">点图</button>
+                <button onclick="change_to_pot_market_pot()">带标记点图</button>
+                <button onclick="change_to_heat_map_static()">静态热力图</button>
+                <button onclick="change_to_heat_map_dynamic()">动态热力图</button> -->
+                <div  class="bt1" style="margin: 0 5px;position: relative;">
+                  <div style="justify-content: center;position: relative;top: 22px;" class="pfTitle">
+                    <span class="titleText">点图</span>
+                  </div>
+                
+                  <!--  xw08
+                  <iframe src="python/map/line_time_to_num.html" frameborder=0 allowfullscreen></iframe>
+                  -->
+
+                </div>
+              </div>
+
+              <div class='tri2'>
+              </div>
             </div>
           </div>
-          <div class="line_time_to_num" onclick="change_to_line_time_to_num()">
+          <div class="pot_market_pot" onclick="change_to_pot_market_pot()">
             <div>
               <div class='rtri1'>
               </div>
               <div class='box'>
                   <div  class="bt-1" style="margin: 0 20px 0 0;position: relative;">
                     <div class="pfTitle" style="width: 40px;white-space:pre-line;top: 22px;">
-                      <span class="titleText" style="font-size: 20px;">时间-次数</span>
+                      <span class="titleText" style="font-size: 20px;">带标记点图</span>
                     </div>
                   </div>
               </div>
@@ -104,19 +128,7 @@
               <button onclick="change_to_pie_m_to_num()">震级饼图</button>
             </div>
           </div>
-          <div class="top10">
-            <div>
-              <div class="pfTitle" style="margin-bottom: 30px;">
-                <img style="margin-right: 10px;" src="img/aqyh.png"/>
-                <span class="titleText">地震发生地TOP10</span>
-              </div>
-              <img
-                style="display: block;margin: auto;width: 80%;height: 75%;"
-                src="img/aqyhtop100.png"
-                alt="更多资源：https://gitee.com/iGaoWei/big-data-view"
-              />
-            </div>
-          </div>
+          
         </div>
         <div class="middleBox col-md-8">
           <!-- <div class="baiduMap">
@@ -194,6 +206,52 @@
               </form>
             </div>
           </div>
+          <div class="guzhangtj">
+            <div>
+              <div style="margin: 0 15px;position: relative;">
+                <div
+                  style="justify-content: flex-start;margin-bottom: 3px;"
+                  class="pfTitle"
+                >
+                  <img style="margin-right: 10px;" src="img/gzt.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
+                  <span class="titleText">故障统计</span>
+                </div>
+                <span style="left: 40%;top: 30%;" class="smdate"
+                  >{{ year }}/{{ month }}</span
+                >
+                <div id="echartsgztj" style="width:100%;height:180px;"></div>
+                <!-- <img src="img/gztjs.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
+                <span class="spanfont"
+                  >11 &nbsp; 12 &nbsp; 13 &nbsp;11 &nbsp;12 &nbsp;13 &nbsp;
+                  15</span
+                > -->
+                <!-- <div
+                  style="display: flex;justify-content: center;margin-top: 10px;"
+                >
+                  <img src="img/zflft.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
+                  <span class="smtext">故障数量</span>
+                  <img src="img/zfright.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
+                  <span class="smtext">故障处理及时率</span>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="top10">
+            <div>
+              <div class="pfTitle" style="margin-bottom: 30px;">
+                <img style="margin-right: 10px;" src="img/aqyh.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
+                <span class="titleText">安全隐患TOP10</span>
+              </div>
+              <img
+                style="display: block;margin: auto;width: 80%;height: 75%;"
+                src="img/aqyhtop100.png"
+                alt="更多资源：https://gitee.com/iGaoWei/big-data-view"
+              />
+            </div>
+          </div>
+          
+          
+          
         </div>
       </div>
     </div>
