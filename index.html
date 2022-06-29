@@ -61,6 +61,7 @@
               <button onclick="change_to_line_m_to_num()">震级与地震次数关系折线图</button>
               <button onclick="change_to_word_cloud()">震源地点云图</button>
               <button onclick="change_to_pie_m_to_num()">震级饼图</button>
+              <button onclick="change_to_rank_list_dynamic()">频繁地震区域</button>
             </div>
           </div>
           <div class="top10">
@@ -422,6 +423,9 @@ var markerArr2 = [
       }
       function change_to_pie_m_to_num(){
         document.getElementById('on_show').src="./python/map/pie_m_to_num.html"
+      }
+      function change_to_rank_list_dynamic(){
+        document.getElementById('on_show').src="./python/map/rank_list_dynamic.html"
       }
       function open_draw(){
         var com = "myprotocol://"+"&-"+$('#m1').val()+"&-"+$('#m2').val()+"&-"+$('#start').val()+"&-"+

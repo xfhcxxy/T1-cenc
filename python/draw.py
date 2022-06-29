@@ -14,6 +14,7 @@ from pyecharts.charts import Line
 from pyecharts.charts import WordCloud
 from pyecharts.charts import Pie
 from pyecharts.faker import Faker
+from pyecharts.charts import Timeline
 from pyecharts import options as opts
 from pyecharts.globals import ThemeType
 
@@ -65,8 +66,6 @@ def read_data(m_1=0.0, m_2=10.0, time_1="2000-01-01", time_2="2200-01-01", lat_1
 '''
 同时画所有点
 '''
-
-
 def draw_pot_all_pot(lat, lon):  # 纬度和经度
     lat = np.array(lat)
     lon = np.array(lon)
@@ -90,8 +89,6 @@ def draw_pot_all_pot(lat, lon):  # 纬度和经度
 ''' 
 一个区域类的点会合成一个点，点上数字表示这个区域有多少点
 '''
-
-
 def draw_pot_market_pot(lat, lon):  # 纬度和经度
     lat = np.array(lat)
     lon = np.array(lon)
@@ -105,8 +102,6 @@ def draw_pot_market_pot(lat, lon):  # 纬度和经度
 '''
 静态热力图
 '''
-
-
 def draw_heat_map_static(m, lat, lon):
     data = []
     for i in range(len(m)):
@@ -122,8 +117,6 @@ t = y 按年划分
 t = m 按月划分（默认）
 t = d 按日划分
 '''
-
-
 def draw_heat_map_dynamic(m, date, lat, lon, t='m'):
     data = []  # 总数据
     data_m = []  # 一个时间划分的数据
@@ -148,8 +141,6 @@ def draw_heat_map_dynamic(m, date, lat, lon, t='m'):
 '''
 折线图 震级-次数
 '''
-
-
 def draw_line_m_to_num(m):
     line = Line(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK))
     count = {}
@@ -175,8 +166,6 @@ t = y 按年划分
 t = m 按月划分（默认）
 t = d 按日划分
 '''
-
-
 def draw_line_time_to_num(date, t='m'):
     line = Line(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK))
     lim = 7
@@ -240,6 +229,48 @@ def draw_pie_m_to_num(m):
     pie.set_global_opts(title_opts=opts.TitleOpts(title="饼图 震级（精确到个位）- 次数"))
     pie.set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c}"))
     pie.render(os.path.join(save_path, 'pie_m_to_num.html'))
+
+
+'''
+动态排行榜 地点
+'''
+def draw_rank_list_dynamic(date, loc):
+    for i in range(len(date)):
+        date[i] = date[i][:4]
+    time_line = Timeline(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK))
+    count = {}
+    num = len(date)
+    for i in range(num):
+        if loc[i] not in count:
+            count[loc[i]] = 0
+        count[loc[i]] += 1
+        if i == num-1 or date[i] != date[i+1]:
+            count = sorted(count.items(), key=lambda x: x[1], reverse=True)
+            x = []
+            y = []
+            for item in count[:10]:
+                x.append(item[0])
+                y.append(item[1])
+            x.reverse()
+            y.reverse()
+            bar = (
+                Bar()
+                .add_xaxis(x)
+                .add_yaxis("年地震次数", y)
+                .reversal_axis()
+                .set_global_opts(title_opts=opts.TitleOpts(title='频繁地震区域', subtitle="单位：次", pos_left='center', pos_top='top'),
+                                 legend_opts=opts.LegendOpts(is_show=False),
+                                 visualmap_opts=opts.VisualMapOpts(
+                                     is_show=True, pos_top='center', range_color=['lightskyblue', 'yellow', 'orangered'], min_=0, max_=9)
+
+
+                                 )
+                .set_series_opts(label_opts=opts.LabelOpts(is_show=True, position='right', color='white'))
+
+            )
+            time_line.add(bar, date[i]).add_schema(is_auto_play=True)
+            count = {}
+    time_line.render(os.path.join(save_path, 'rank_list_dynamic.html'))
 
 
 if __name__ == '__main__':
@@ -318,7 +349,6 @@ if __name__ == '__main__':
     for dt in date_time:
         date.append(str(dt).split(' ')[0])
         time.append(str(dt).split(' ')[1])
-    '''
     print("开始绘图", file=f)
     draw_pot_all_pot(lat, lon)
     print("绘制完点图", file=f)
@@ -334,8 +364,9 @@ if __name__ == '__main__':
     print("绘制完震级与地震次数关系折线图", file=f)
     draw_word_cloud(loc)
     print("绘制完地点云图", file=f)
-    '''
     draw_pie_m_to_num(m)
     print("绘制完震级饼图", file=f)
+    draw_rank_list_dynamic(date, loc)
+    print("绘制动态排行", file=f)
     disconnect()
     f.close()
