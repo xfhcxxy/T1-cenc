@@ -75,6 +75,36 @@
               </div>
             </div>
           </div>
+          <div class="heat_map_static" onclick="change_to_heat_map_static()">
+            <div>
+              <div class='tri1'> 
+              </div>
+              <div class='box'>
+                  <div  class="bt1" style="position: relative;">
+                    <div style="width: 40px;white-space:pre-line;top: 22px;" class="pfTitle">
+                      <span class="titleText" style="font-size: 20px;">静态热力图</span>
+                    </div>
+                  </div>
+              </div>
+              <div class='tri2'>
+              </div>
+            </div>
+          </div>
+          <div class="line_time_to_num" onclick="change_to_line_time_to_num()">
+            <div>
+              <div class='rtri1'>
+              </div>
+              <div class='box'>
+                  <div  class="bt-1" style="margin: 0 20px 0 0;position: relative;">
+                    <div class="pfTitle" style="width: 40px;white-space:pre-line;top: 22px;">
+                      <span class="titleText" style="font-size: 20px;">时间--次数</span>
+                    </div>
+                  </div>
+              </div>
+              <div class='rtri2'>
+              </div>
+            </div>
+          </div>
           <div class="paimin">
             <div>
               <div class="pfTitle" style="margin-bottom: 30px;">
@@ -108,10 +138,46 @@
           <iframe id="on_show" src="python/map/heat_map_dynamic.html" width="1200px" height="700px" scrolling="No"></iframe>
 
           <div class="tongjiList">
-            <div class="col-md-3">
-              <div class="tri_row" style="display:inline-block;">
-                <span class="titleText">历史查询</span>
+            <div>
+              <div  class="col-md-3" onclick="change_to_line_time_to_num()" style="margin: 0 15px;position: relative;">
+                <div style="justify-content: center;position: relative;top: 22px;" class="pfTitle">
+                  <img style="margin-right: 10px;" src="img/xfjs.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
+                  <span class="titleText">时间-地震次数关系</span>
+                </div>
+
+                <!--  xw08
+                <iframe src="python/map/line_time_to_num.html" frameborder=0 allowfullscreen></iframe>
+                -->
+
+              
               </div>
+              <div class="comLine"></div>
+              <div class="col-md-3" onclick="change_to_line_m_to_num()" style="margin: 0 15px;position: relative;">
+                <div style="justify-content: center;position: relative; top: 22px;
+            " class="pfTitle">
+                  <img style="margin-right: 10px;" src="img/ldbj.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
+                  <span class="titleText">震级-地震次数关系</span>
+                </div>
+
+                <!--  xw08
+                <iframe src="python/map/line_time_to_num.html" frameborder=0 allowfullscreen></iframe>
+                  -->
+
+              </div>
+              <div class="comLine"></div>
+              <div class="col-md-3" onclick="change_to_word_cloud()" style="margin: 0 15px;position: relative;">
+                <div style="justify-content: center;position: relative; top: 22px;" class="pfTitle">
+                  <img style="margin-right: 10px;" src="img/jgbj.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
+                  <span class="titleText">地点云图</span>
+                </div>
+
+                <!--  xw08
+                <iframe src="python/map/word_cloud.html" frameborder=0 allowfullscreen></iframe>
+                -->
+
+              </div>
+              <div class="comLine"></div>
+              
             </div>
           </div>
         </div>
