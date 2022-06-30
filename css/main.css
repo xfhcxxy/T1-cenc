@@ -52,28 +52,23 @@ body {
 .main .content .leftBox .pot_all_pot {
   width: 100%;
   height: 200px;
-  background: rgba(50, 72, 106, 0.2);
 }
 .main .content .leftBox .pot_market_pot {
   width: 100%;
   height: 200px;
-  background: rgba(50, 72, 106, 0.2);
 }
 .main .content .leftBox .heat_map_static {
   width: 100%;
   height: 200px;
-  background: rgba(50, 72, 106, 0.2);
 }
 .main .content .leftBox .line_time_to_num{
   width: 100%;
   height: 200px;
-  background: rgba(50, 72, 106, 0.2);
 }
 .main .content .leftBox .pingfen {
   padding-top: 20px;
   width: 100%;
   height: 100px;
-  background: rgba(50, 72, 106, 0.2);
 }
 .main .content .leftBox .pingfen .pfcontent {
   display: flex;
