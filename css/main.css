@@ -197,12 +197,12 @@ body {
   border: 1px solid rgba(27, 146, 253, 0.5);
 }
 .main .content .rightBox .guzhangtj {
-  height: 220px;
+  height: 120px;
   background: rgba(50, 72, 106, 0.2);
   margin-bottom: 18px;
 }
 .main .content .rightBox .guzhangtj > div {
-  height: 220px;
+  height: 120px;
   width: 100%;
   border: 1px solid rgba(27, 146, 253, 0.5);
 }
