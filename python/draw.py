@@ -18,7 +18,7 @@ from pyecharts.charts import Timeline
 from pyecharts import options as opts
 from pyecharts.globals import ThemeType
 
-# path = os.path.dirname(os.path.realpath(sys.executable))
+#path = os.path.dirname(os.path.realpath(sys.executable))
 path = os.path.abspath('.')
 save_path = os.path.join(path, 'map')
 log_path = os.path.join(path, 'log')
@@ -105,9 +105,9 @@ def draw_pot_market_pot(lat, lon):  # 纬度和经度
 def draw_heat_map_static(m, lat, lon):
     data = []
     for i in range(len(m)):
-        data.append([lat[i], lon[i], m[i]])
+        data.append([lat[i], lon[i], m[i]/10])
     world_map = folium.Map(location=[35.3, 100.6], zoom_start=4, control_scale=True, )
-    HeatMap(data).add_to(world_map)
+    HeatMap(data, radius=20).add_to(world_map)
     world_map.save(os.path.join(save_path, 'heat_map_static.html'))
 
 
@@ -142,7 +142,7 @@ def draw_heat_map_dynamic(m, date, lat, lon, t='m'):
 折线图 震级-次数
 '''
 def draw_line_m_to_num(m):
-    line = Line(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK))
+    line = Line(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
     count = {}
     for i in range(len(m)):
         m[i] = str(m[i])
@@ -156,7 +156,20 @@ def draw_line_m_to_num(m):
     y = []
     for x in m:
         y.append(count[x])
-    line.add_yaxis("地震次数", y, is_clip=True)
+    line.add_yaxis("地震次数", y, is_clip=True,
+                   symbol='circle',
+                   symbol_size=8,
+                   linestyle_opts=opts.LineStyleOpts(width=3, color="rgb(63, 177, 227)"),
+                   itemstyle_opts=opts.ItemStyleOpts(color="rgb(63, 177, 227)")
+                   )
+    line.set_series_opts(
+        areastyle_opts=opts.AreaStyleOpts(opacity=0.5, color="rgb(50, 132, 176)"),
+        label_opts=opts.LabelOpts(is_show=False),
+    )
+    line.set_global_opts(
+        title_opts=opts.TitleOpts(title="震级与地震次数关系图", subtitle="单位：次", pos_left='center', pos_top='top'),
+        legend_opts=opts.LegendOpts(is_show=False)
+    )
     line.render(os.path.join(save_path, 'line_m_to_num.html'))
 
 
@@ -167,7 +180,7 @@ t = m 按月划分（默认）
 t = d 按日划分
 '''
 def draw_line_time_to_num(date, t='m'):
-    line = Line(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK))
+    line = Line(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
     lim = 7
     if t == 'd':
         lim = 10
@@ -186,7 +199,20 @@ def draw_line_time_to_num(date, t='m'):
     y = []
     for d in date:
         y.append(date_dict[d])
-    line.add_yaxis("地震次数", y, is_clip=True)
+    line.add_yaxis("地震次数", y, is_clip=True,
+                   symbol='circle',
+                   symbol_size=8,
+                   linestyle_opts=opts.LineStyleOpts(width=3, color="rgb(63, 177, 227)"),
+                   itemstyle_opts=opts.ItemStyleOpts(color="rgb(63, 177, 227)")
+                   )
+    line.set_series_opts(
+        areastyle_opts=opts.AreaStyleOpts(opacity=0.5, color="rgb(50, 132, 176)"),
+        label_opts=opts.LabelOpts(is_show=False),
+    )
+    line.set_global_opts(
+        title_opts=opts.TitleOpts(title="时间与地震次数关系图", subtitle="单位：次", pos_left='center', pos_top='top'),
+        legend_opts=opts.LegendOpts(is_show=False),
+    )
     line.render(os.path.join(save_path, 'line_time_to_num.html'))
 
 
@@ -194,7 +220,10 @@ def draw_line_time_to_num(date, t='m'):
 词云，体现地点地震频率
 '''
 def draw_word_cloud(loc):
-    cloud = WordCloud(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK))
+    cloud = WordCloud(
+        init_opts=opts.InitOpts(width="1200px", height="700px", bg_color="rgb(21, 28, 57)", theme=ThemeType.DARK),
+
+    )
     count = {}
     for l in loc:
         if l not in count:
@@ -204,7 +233,11 @@ def draw_word_cloud(loc):
     data = []
     for l in loc:
         data.append((l, count[l]))
-    cloud.add(series_name="震源", data_pair=data, shape="circle")
+    cloud.add(
+        series_name="震源",
+        data_pair=data,
+        shape="circle"
+    )
     cloud.render(os.path.join(save_path, 'word_cloud.html'))
 
 
@@ -212,10 +245,10 @@ def draw_word_cloud(loc):
 饼图 震级（精确到个位）- 次数
 '''
 def draw_pie_m_to_num(m):
-    pie = Pie(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK))
+    pie = Pie(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
     count = {}
     for i in range(len(m)):
-        m[i] = str(int(m[i]))+"级地震"
+        m[i] = str(int(float(m[i])))+"级地震"
     for i in m:
         if i not in count:
             count[i] = 0
@@ -237,7 +270,7 @@ def draw_pie_m_to_num(m):
 def draw_rank_list_dynamic(date, loc):
     for i in range(len(date)):
         date[i] = date[i][:4]
-    time_line = Timeline(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK))
+    time_line = Timeline(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
     count = {}
     num = len(date)
     for i in range(num):
@@ -254,7 +287,7 @@ def draw_rank_list_dynamic(date, loc):
             x.reverse()
             y.reverse()
             bar = (
-                Bar()
+                Bar(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
                 .add_xaxis(x)
                 .add_yaxis("年地震次数", y)
                 .reversal_axis()
@@ -262,8 +295,6 @@ def draw_rank_list_dynamic(date, loc):
                                  legend_opts=opts.LegendOpts(is_show=False),
                                  visualmap_opts=opts.VisualMapOpts(
                                      is_show=True, pos_top='center', range_color=['lightskyblue', 'yellow', 'orangered'], min_=0, max_=9)
-
-
                                  )
                 .set_series_opts(label_opts=opts.LabelOpts(is_show=True, position='right', color='white'))
 
@@ -350,23 +381,23 @@ if __name__ == '__main__':
         date.append(str(dt).split(' ')[0])
         time.append(str(dt).split(' ')[1])
     print("开始绘图", file=f)
-    draw_pot_all_pot(lat, lon)
+    #draw_pot_all_pot(lat, lon)
     print("绘制完点图", file=f)
-    draw_pot_market_pot(lat, lon)
+    #draw_pot_market_pot(lat, lon)
     print("绘制完带标记点图", file=f)
     draw_heat_map_static(m, lat, lon)
     print("绘制完静态热力图", file=f)
     draw_heat_map_dynamic(m, date, lat, lon, t='m')
     print("绘制完动态热力图", file=f)
-    draw_line_time_to_num(date, t='m')
+    #draw_line_time_to_num(date, t='m')
     print("绘制完时间与地震次数关系折线图", file=f)
-    draw_line_m_to_num(m)
+    #draw_line_m_to_num(m)
     print("绘制完震级与地震次数关系折线图", file=f)
-    draw_word_cloud(loc)
+    #draw_word_cloud(loc)
     print("绘制完地点云图", file=f)
-    draw_pie_m_to_num(m)
+    #draw_pie_m_to_num(m)
     print("绘制完震级饼图", file=f)
-    draw_rank_list_dynamic(date, loc)
+    #draw_rank_list_dynamic(date, loc)
     print("绘制动态排行", file=f)
     disconnect()
     f.close()

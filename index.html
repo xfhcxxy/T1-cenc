@@ -86,14 +86,14 @@
               </div>
             </div>
           </div>
-          <div class="heat_map_static" onclick="change_to_heat_map_static()">
+          <div class="heat_map_static" onclick="change_to_heat_map_dynamic()">
             <div>
               <div class='tri1'> 
               </div>
               <div class='box'>
                   <div  class="bt1" style="position: relative;">
                     <div style="width: 40px;white-space:pre-line;top: 22px;" class="pfTitle">
-                      <span class="titleText" style="font-size: 20px;">静态热力图</span>
+                      <span class="titleText" style="font-size: 20px;">动态热力图</span>
                     </div>
                   </div>
               </div>
@@ -116,19 +116,6 @@
               </div>
             </div>
           </div>
-          <div class="paimin">
-            <div>
-              <div class="pfTitle" style="margin-bottom: 30px;">
-                <img style="margin-right: 10px;" src="img/jzaqpf.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                <span class="titleText">统计图表</span>
-              </div>
-              <button onclick="change_to_line_time_to_num()">时间与地震次数关系折线图</button>
-              <button onclick="change_to_line_m_to_num()">震级与地震次数关系折线图</button>
-              <button onclick="change_to_word_cloud()">震源地点云图</button>
-              <button onclick="change_to_pie_m_to_num()">震级饼图</button>
-            </div>
-          </div>
-          
         </div>
         <div class="middleBox col-md-8">
           <!-- <div class="baiduMap">
@@ -140,7 +127,7 @@
             <div class="bt_row1" onclick="change_to_line_m_to_num()">
               <div class="tri1_row"></div>
               <div class="box1_row">
-                <span class="titleText" style="font-size: 20px;">震级-次数</span>
+                <span class="titleText" style="font-size: 20px;">时间-次数</span>
               </div>
               <div class="tri2_row"></div>
             </div>
@@ -162,6 +149,13 @@
               <div class="rtri1_row"></div>
               <div class="box1_row">
                 <span class="titleText" style="font-size: 20px;">震级饼图</span>
+              </div>
+              <div class="rtri2_row"></div>
+            </div>
+            <div class="bt_row2"  style="float:left;transform: translateX(-100px);" onclick="change_to_pie_m_to_num()">
+              <div class="rtri1_row"></div>
+              <div class="box1_row">
+                <span class="titleText" style="font-size: 20px;">饼图</span>
               </div>
               <div class="rtri2_row"></div>
             </div>
