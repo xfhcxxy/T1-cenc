@@ -461,7 +461,9 @@
                   <button type="button" onclick="open_draw()">查询</button>
                   <!--<a href="myprotocol:// -$('#m1').val()" >查询</a> -->
                 </div>
-
+                <div class="input-group">
+                  <button type="button" onclick="update_data()">更新数据</button>
+                </div>
               </form>
             </div>
           </div>
@@ -481,7 +483,7 @@
                   <div style="color:white">震级：0级及以上</div>
                 </div>
 
-                <div id="echartsgztj" style="width:100%;height:180px;"></div>
+
                 <!-- <img src="img/gztjs.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
                 <span class="spanfont"
                   >11 &nbsp; 12 &nbsp; 13 &nbsp;11 &nbsp;12 &nbsp;13 &nbsp;
@@ -498,10 +500,6 @@
               </div>
             </div>
           </div>
-            <span class="titleText">快捷选项</span>
-            <div class="input-group">
-                  <button type="button" onclick="update_data()">更新数据</button>
-                </div>
             <span class="titleText">top10</span>
             <iframe id="top_show" src="python/map/rank_list_dynamic.html" width="460px" height="380px" scrolling="No"></iframe>
         </div>
