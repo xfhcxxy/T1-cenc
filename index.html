@@ -124,11 +124,6 @@
           <iframe id="on_show" src="python/map/heat_map_dynamic.html" width="1200px" height="700px" scrolling="No"></iframe>
 
           <div class="tongjiList">
-              <div class="bt_row1"  style="float:left;transform: translateX(100px);" onclick="change_to_rank_list_dynamic()">
-               <div class="rtri1_row"></div>
-               <div class="box1_row"><span class="titleText" style="font-size: 20px;">top10</span></div>
-               <div class="rtri2_row"></div>
-             </div>
             <div class="bt_row1" onclick="change_to_line_m_to_num()">
               <div class="tri1_row"></div>
               <div class="box1_row">
@@ -463,12 +458,10 @@
                     <option>9.4</option>
                     <option>9.5</option>
                   </datalist>
-                  <button type="button" onclick="open_draw()" >查询</button>
+                  <button type="button" onclick="open_draw()">查询</button>
                   <!--<a href="myprotocol:// -$('#m1').val()" >查询</a> -->
                 </div>
-                <div class="input-group">
-                  <button type="button" onclick="update_data()">更新数据</button>
-                </div>
+
               </form>
             </div>
           </div>
@@ -487,7 +480,7 @@
                   <div style="color:white">地区：中国</div>
                   <div style="color:white">震级：0级及以上</div>
                 </div>
-                  <span class="titleText">快捷选项</span>
+
                 <div id="echartsgztj" style="width:100%;height:180px;"></div>
                 <!-- <img src="img/gztjs.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
                 <span class="spanfont"
@@ -505,6 +498,12 @@
               </div>
             </div>
           </div>
+            <span class="titleText">快捷选项</span>
+            <div class="input-group">
+                  <button type="button" onclick="update_data()">更新数据</button>
+                </div>
+            <span class="titleText">top10</span>
+            <iframe id="top_show" src="python/map/rank_list_dynamic.html" width="460px" height="380px" scrolling="No"></iframe>
         </div>
       </div>
     </div>
