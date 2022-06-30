@@ -500,22 +500,11 @@
               </div>
             </div>
           </div>
-          <div class="top10">
-            <div>
-              <div class="pfTitle" style="margin-bottom: 30px;">
-                <img style="margin-right: 10px;" src="img/aqyh.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                <span class="titleText">TOP10</span>
-              </div>
-              <img
-                style="display: block;margin: auto;width: 80%;height: 75%;"
-                src="img/aqyhtop100.png"
-                alt="更多资源：https://gitee.com/iGaoWei/big-data-view"
-              />
-            </div>
+          <div class="bt_row1"  style="float:left;transform: translateX(100px);" onclick="change_to_rank_list_dynamic()">
+            <div class="rtri1_row"></div>
+            <div class="box1_row"><span class="titleText" style="font-size: 20px;">top10</span></div>
+            <div class="rtri2_row"></div>
           </div>
-          
-          
-          
         </div>
       </div>
     </div>
@@ -687,6 +676,9 @@ var markerArr2 = [
       }
       function change_to_pie_m_to_num(){
         document.getElementById('on_show').src="./python/map/pie_m_to_num.html"
+      }
+      function change_to_rank_list_dynamic(){
+        document.getElementById('on_show').src="./python/map/rank_list_dynamic.html"
       }
       function open_draw(){
         var com = "myprotocol://"+"&-"+$('#m1').val()+"&-"+$('#m2').val()+"&-"+$('#start').val()+"&-"+
