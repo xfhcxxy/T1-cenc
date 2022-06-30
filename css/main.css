@@ -176,11 +176,12 @@ body {
 }
 .main .content .middleBox .tongjiList {
   height: 203px;
+  display: flex;
   background: rgba(14, 18, 45, 1);
   margin-top: 20px;
 }
 .main .content .middleBox .tongjiList > div {
-  height: 203px;
+  
   display: flex;
   align-items:center;
 }
@@ -357,11 +358,12 @@ body {
 .tri1_row{
   width:0px;
   height:0px;
-  border-top:40px solid rgba(0,0,0,0);
-  border-right:40px solid  rgba(0,0,0,0);
-  border-bottom:40px solid rgb(0, 77, 128);
-  border-left:40px solid  rgba(0,0,0,0);
-  transform: rotate(135deg);
+  border-top:55px solid rgba(0,0,0,0);
+  border-right:55px solid  rgba(0,0,0,0);
+  border-bottom:55px solid rgb(0, 77, 128);
+  border-left:55px solid  rgba(0,0,0,0);
+  transform: translate(12px,-54px);
+  
   display:inline-block;
 }
 .box1_row{
@@ -369,8 +371,7 @@ body {
   height:54px;
   -right: 100px;
   background-color:rgb(0, 77, 128);
-  transform: translateX(-42px);
-  margin-bottom: 53px;
+  transform: translate(-42px,-26px);
   z-index:999;
 }
 .tri2_row{
@@ -380,8 +381,7 @@ body {
   border-right:55px solid  rgba(0,0,0,0);
   border-bottom:55px solid rgb(0, 77, 128);
   border-left:55px solid  rgba(0,0,0,0);
-  transform: translateX(-94px);
-  margin-bottom: 110px;
+  transform: translate(-98px,-54px);
   display:inline-block;
 }
 .rtri1_row{
@@ -391,7 +391,7 @@ body {
   border-right:55px solid  rgba(0,0,0,0);
   border-top:55px solid rgb(0, 77, 128);
   border-left:55px solid  rgba(0,0,0,0);
-  transform: translateX(15px);
+  transform: translate(13px,2px);
   display:inline-block;
 }
 .rtri2_row{
@@ -402,6 +402,25 @@ body {
   border-top:55px solid rgb(0, 77, 128);
   border-left:55px solid  rgba(0,0,0,0);
   margin-bottom: 0px;
-  transform: translateX(-94px);
+  transform: translate(-96px,2px);
   display:inline-block;
+}
+.bt_row1{
+  display: flex;
+  float:left;
+}
+.bt_row2{
+  display: flex;
+  float:left;
+  transform: translate(-120px);
+}
+.bt_row3{
+  display: flex;
+  float:left;
+  transform: translate(-240px);
+}
+.bt_row4{
+  display: flex;
+  float:left;
+  transform: translateX(-360px);
 }
