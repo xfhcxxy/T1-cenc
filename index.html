@@ -158,44 +158,40 @@
             <div>
               <div style="margin-left: 27px;" class="pfTitle">
                 <img style="margin-right: 10px;" src="img/whtj.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                <span class="titleText">历史查询</span>
+                <span class="titleText">查询</span>
               </div>
               <form id="frm" action method="post" class="inquiry-form" target="_blank">
                 <div class="input-group">
                   <label for>时间:</label>
                   <input name="start" id="start" class="Wdate" style="width: 90px" type="text" onfocus="WdatePicker({lang:'zh-cn'})">
-                  "至"
+                  至
                   <input name="start" id="end" class="Wdate" style="width: 90px" type="text" onfocus="WdatePicker({lang:'zh-cn'})">
                 </div>
                 <div class="input-group">
                   <label for>纬度：</label>
-                  "大于 "
                   <input type="text" value name="lat1" class="span1" id="lat1">
-                  "小于 "
+                  至
                   <input type="text" value name="lat2" class="span1" id="lat2">
                   <span style="margin-right: 60px"> 单位：度 范围：-90至90</span>
                 </div>
                 <div class="input-group">
                   <label for>经度：</label>
-                  "大于 "
                   <input type="text" value name="lon1" class="span1" id="lon1">
-                  "小于 "
+                  至
                   <input type="text" value name="lon2" class="span1" id="lon2">
                   <span style="margin-right: 60px"> 单位：度 范围：-180至180</span>
                 </div>
                 <div class="input-group">
                   <label for>深度：</label>
-                  "大于 "
                   <input type="text" value name="dep1" class="span1" id="dep1">
-                  "小于 "
+                  至
                   <input type="text" value name="dep2" class="span1" id="dep2">
                   <span style="margin-right: 60px"> 单位：千米</span>
                 </div>
                 <div class="input-group">
                   <label for>震级：</label>
-                  "大于 "
                   <input type="text" value name="m1" class="span1" id="m1">
-                  "小于 "
+                  至
                   <input type="text" value name="m2" class="span1" id="m2">
                   <button type="button" onclick="open_draw()" >查询</button>
                   <!--<a href="myprotocol:// -$('#m1').val()" >查询</a> -->
@@ -214,7 +210,7 @@
                   class="pfTitle"
                 >
                   <img style="margin-right: 10px;" src="img/gzt.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                  <span class="titleText">故障统计</span>
+                  <span class="titleText">统计</span>
                 </div>
                 <span style="left: 40%;top: 30%;" class="smdate"
                   >{{ year }}/{{ month }}</span
