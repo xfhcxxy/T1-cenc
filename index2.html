@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>地震数据概览</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="./img/favicon.ico" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/jq22.css" />
+    <title>地震图表概览</title>
+    <style>
+      .BMap_scaleTxt{
+        color: #fff!important;
+      }
+    </style>
 </head>
 <body>
+    <div class="change-group">
+        <button type="button" onclick="window.location.href='index.html'">页面切换</button>
+    </div>
+    <div class="map-group1">
+    <span class="titleText">震级-次数图</span>
+        <iframe id="m_show" src="python/map/line_m_to_num.html" width="1215px" height="715px" scrolling="No"></iframe>
+    <span class="titleText">时间-次数图</span>
+        <iframe id="time_show" src="python/map/line_time_to_num.html" width="1215px" height="715px" scrolling="No"></iframe>
+    </div>
+    <div class="map-group1">
+        <span class="titleText">云图</span>
+        <iframe id="cloud_show" src="python/map/word_cloud.html" width="1215px" height="715px" scrolling="No"></iframe>
     <span class="titleText">top10</span>
-            <iframe id="top_show" src="python/map/rank_list_dynamic.html" width="1215px" height="715px" scrolling="No"></iframe>
+        <iframe id="top_show" src="python/map/rank_list_dynamic.html" width="1215px" height="715px" scrolling="No"></iframe>
+    </div>
 </body>
 </html>
