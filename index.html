@@ -29,9 +29,7 @@
         <img src="img/zgdztwdsjpt.png" alt="对中国地震台网进行大数据分析" />
         <div class="dateBox">
           <span id="time"
-            >{{ year }}-{{ month }}-{{ date }}&nbsp;&nbsp; {{ hour }}:{{
-              minute
-            }}:{{ second }}&nbsp;&nbsp; {{ strDate }}
+            >{{ year }}-{{ month }}-{{ date }}&nbsp;&nbsp; {{ hour }}:{{minute}}:{{ second }}&nbsp;&nbsp; {{ strDate }}
           </span>
         </div>
       </div>
@@ -121,7 +119,7 @@
           <!-- <div class="baiduMap">
             <div id="container"></div>
           </div> -->
-          <iframe id="on_show" src="python/map/heat_map_dynamic.html" width="1200px" height="700px" scrolling="No"></iframe>
+          <iframe id="on_show" class="frame_style" src="python/map/heat_map_dynamic.html" width="1200px" height="700px" scrolling="No"></iframe>
 
           <div class="tongjiList">
             <div class="bt_row1" onclick="change_to_line_m_to_num()">
@@ -509,8 +507,10 @@
               </div>
             </div>
           </div>
-            <span class="titleText">top10</span>
-            <iframe id="top_show" src="python/map/rank_list_dynamic.html" width="460px" height="380px" scrolling="No"></iframe>
+            <div class="ranklist">
+                <span class="titleText">top10</span>
+                <iframe id="top_show" class="frame_style" src="python/map/rank_list_dynamic.html" width="460px" height="380px" scrolling="No"></iframe>
+            </div>
         </div>
       </div>
     </div>

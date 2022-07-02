@@ -169,6 +169,13 @@ body {
   height: 705px;
   border: 1px solid rgba(27, 146, 253, 0.5);
 }
+.main.content.middleBox.on_show{
+  border: 1px solid rgba(27, 146, 253, 0.5);
+  display: flex;
+  background: rgba(14, 18, 45, 1);
+  margin-top: 20px;
+
+}
 .main .content .middleBox .tongjiList {
   height: 203px;
   display: flex;
@@ -200,6 +207,10 @@ body {
   height: 120px;
   width: 100%;
   border: 1px solid rgba(27, 146, 253, 0.5);
+}
+.frame_style{
+  border: 1px solid rgba(27, 146, 253, 0.5);
+  background: rgba(50, 72, 106, 0.2);
 }
 .main .content .rightBox .huojingtj {
   height: 220px;
