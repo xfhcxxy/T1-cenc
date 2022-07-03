@@ -19,8 +19,7 @@ from pyecharts import options as opts
 from pyecharts.globals import ThemeType
 
 #path = os.path.dirname(os.path.realpath(sys.executable))
-# path = os.path.abspath('.')
-path = os.path.abspath('D:\daishuju\proj\T1-cenc\python')
+path = os.path.abspath('.')
 save_path = os.path.join(path, 'map')
 log_path = os.path.join(path, 'log')
 f = open(os.path.join(log_path, 'draw.txt'), 'w')
