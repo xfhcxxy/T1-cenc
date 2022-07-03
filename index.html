@@ -120,35 +120,27 @@
             <div id="container"></div>
           </div> -->
           <iframe id="on_show" class="frame_style" src="python/map/heat_map_dynamic.html" width="1200px" height="700px" scrolling="No"></iframe>
-
+          <!--  heat_map_dynamic_flag:0,
+                heat_map_static_flag:0,
+                line_m_to_num_flag:0,
+                line_time_to_num_flag:0,
+                pie_m_to_num_flag:0,
+                pot_all_pot_flag:0,
+                pot_market_pot_flag:0,
+                word_cloud_flag:0 
+          -->
           <div class="tongjiList">
-            <div class="bt_row1" onclick="change_to_line_m_to_num()">
-              <div class="tri1_row"></div>
-              <div class="box1_row">
-                <span class="titleText" style="font-size: 20px;">震级-次数</span>
-              </div>
-              <div class="tri2_row"></div>
+            <div class="bt_row1" onclick="change_to_line_time_to_num();setflag();">
+              <img id="btrow1" src="img/时间次数图.png" style="height: 100px;width: 250px;transform: translate(0,-50px);"/>
             </div>
-            <div class="bt_row2"  onclick="change_to_line_time_to_num()">
-              <div class="rtri1_row"></div>
-              <div class="box1_row">
-                <span class="titleText" style="font-size: 20px;">时间-次数</span>
-              </div>
-              <div class="rtri2_row"></div>
+            <div class="bt_row2"  onclick="change_to_line_m_to_num()">
+              <img id="btrow2" src="img/震级次数图.png" style="height: 100px;width: 250px;transform: translate(0,-50px);"/>
             </div>
-            <div class="bt_row3" onclick="change_to_word_cloud()">
-              <div class="tri1_row"></div>
-              <div class="box1_row">
-                <span class="titleText" style="font-size: 20px;">震源云图</span>
-              </div>
-              <div class="tri2_row"></div>
+            <div class="bt_row3" onclick="change_to_pie_m_to_num()">
+              <img id="btrow3" src="img/震级饼图.png" style="height: 100px;width: 250px;transform: translate(0,-50px);"/>
             </div>
-            <div class="bt_row4" onclick="change_to_pie_m_to_num()">
-              <div class="rtri1_row"></div>
-              <div class="box1_row">
-                <span class="titleText" style="font-size: 20px;">震级饼图</span>
-              </div>
-              <div class="rtri2_row"></div>
+            <div class="bt_row4" onclick="change_to_word_cloud()">
+              <img id="btrow4" src="img/震源云图.png" style="height: 100px;width: 250px;transform: translate(0,-50px);"/>
             </div>
           </div>
         </div>
@@ -529,6 +521,18 @@
     <script src="js/main.js"></script>
     <script src="js/echart.js"></script>
     <script type="text/javascript">
+
+      var flags = {
+        heat_map_dynamic_flag:0,
+        heat_map_static_flag:0,
+        line_m_to_num_flag:0,
+        line_time_to_num_flag:0,
+        pie_m_to_num_flag:0,
+        pot_all_pot_flag:0,
+        pot_market_pot_flag:0,
+        word_cloud_flag:0
+      }
+
       var markerArr = [
 
 {
@@ -659,29 +663,80 @@ var markerArr2 = [
 },
 
 ];
+      function reset_all_bt(){
+        flags.heat_map_dynamic_flag=0
+        flags.heat_map_static_flag=0
+        flags.line_m_to_num_flag=0
+        flags.line_time_to_num_flag=0
+        flags.pie_m_to_num_flag=0
+        flags.pot_all_pot_flag=0
+        flags.pot_market_pot_flag=0
+        flags.word_cloud_flag=0
+        document.getElementById('btrow1').src="img/时间次数图.png"
+        document.getElementById('btrow2').src="img/震级次数图.png"
+        document.getElementById('btrow3').src="img/震级饼图.png"
+        document.getElementById('btrow4').src="img/震源云图.png"
+      }
       function change_to_pot_all_pot(){
         document.getElementById('on_show').src="./python/map/pot_all_pot.html"
+        flags.pot_all_pot_flag^=1;
       }
       function change_to_pot_market_pot(){
         document.getElementById('on_show').src="./python/map/pot_market_pot.html"
+        flags.pot_market_pot_flag^=1;
       }
       function change_to_heat_map_static(){
         document.getElementById('on_show').src="./python/map/heat_map_static.html"
+        flags.heat_map_static_flag^=1;
       }
       function change_to_heat_map_dynamic(){
         document.getElementById('on_show').src="./python/map/heat_map_dynamic.html"
+        flags.heat_map_dynamic_flag^=1;
       }
       function change_to_line_time_to_num(){
+        var imgid=document.getElementById('btrow1')
         document.getElementById('on_show').src="./python/map/line_time_to_num.html"
+        reset_all_bt();
+        flags.line_time_to_num_flag=1;
+        if(flags.line_time_to_num_flag){
+          imgid.src="img/时间次数图按下.png"
+        }else{
+          imgid.src="img/时间次数图.png"
+        }
       }
       function change_to_line_m_to_num(){
+        
         document.getElementById('on_show').src="./python/map/line_m_to_num.html"
+        var imgid=document.getElementById('btrow2')
+        reset_all_bt();
+        flags.line_m_to_num_flag=1;
+        if(flags.line_m_to_num_flag){
+          imgid.src="img/震级次数图按下.png"
+        }else{
+          imgid.src="img/震级次数图.png"
+        }
       }
       function change_to_word_cloud(){
         document.getElementById('on_show').src="./python/map/word_cloud.html"
+        var imgid=document.getElementById('btrow4')
+        reset_all_bt();
+        flags.word_cloud_flag=1;
+        if(flags.word_cloud_flag){
+          imgid.src="img/震源云图按下.png"
+        }else{
+          imgid.src="img/震源云图.png"
+        }
       }
       function change_to_pie_m_to_num(){
         document.getElementById('on_show').src="./python/map/pie_m_to_num.html"
+        var imgid=document.getElementById('btrow3')
+        reset_all_bt();
+        flags.pie_m_to_num_flag=1;
+        if(flags.pie_m_to_num_flag){
+          imgid.src="img/震级饼图按下.png"
+        }else{
+          imgid.src="img/震级饼图.png"
+        }
       }
       function change_to_rank_list_dynamic(){
         document.getElementById('on_show').src="./python/map/rank_list_dynamic.html"
@@ -775,6 +830,6 @@ var markerArr2 = [
       $('#container').css('background-color', 'rgba(50,72,106,0.2)')
 
     </script>
-
+    
   </body>
 </html>

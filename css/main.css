@@ -418,15 +418,15 @@ body {
 .bt_row2{
   display: flex;
   float:left;
-  transform: translate(-120px);
+ 
 }
 .bt_row3{
   display: flex;
   float:left;
-  transform: translate(-240px);
+  
 }
 .bt_row4{
   display: flex;
   float:left;
-  transform: translateX(-360px);
+  
 }

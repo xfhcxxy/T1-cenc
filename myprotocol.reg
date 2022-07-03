@@ -9,4 +9,4 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\myprotocol\shell\open]
 @=""
 [HKEY_CLASSES_ROOT\myprotocol\shell\open\command]
-@="\"E:\\class\\bigdata-cenc\\python\\draw.exe\" \"%1\" "
+@="\"D:\\daishuju\\proj\\T1-cenc\\python\\draw.exe\" \"%1\" "
