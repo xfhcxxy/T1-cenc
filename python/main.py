@@ -6,9 +6,13 @@ import time
 
 import requests
 from mongoengine import Document, StringField, FloatField, DateTimeField, IntField, connect, disconnect
+from pyecharts.components import Table
+from pyecharts.options import ComponentTitleOpts
 import time
 import datetime
+import os
 import ast
+import sys
 
 url = "http://www.ceic.ac.cn/ajax/search"
 
@@ -24,6 +28,11 @@ EPI_LAT = []        # 纬度(°)
 EPI_LON = []        # 经度(°)
 EPI_DEPTH = []      # 深度(千米)
 LOCATION_C = []     # 参考位置
+
+
+path = os.path.dirname(os.path.realpath(sys.executable))
+#path = os.path.abspath('.')
+save_path = os.path.join(path, 'map')
 
 
 def retrive(url, params):
@@ -81,6 +90,7 @@ def main():
         num = len(EPI.objects().order_by('O_TIME'))
         data_lastest = EPI.objects().order_by('O_TIME')[num-1]
     except IndexError:
+        num = 0
         data_lastest = EPI()
     for page in range(1, 517):
         print(f"第{page}页")
@@ -106,6 +116,18 @@ def main():
         end = parse(content, data_lastest)
         if end:
             break
+    data_lastest = EPI.objects().order_by('O_TIME')[num - 5:num]
+    table = Table()
+    headers = ["震级", "日期", "经度", "纬度", "深度", "地区"]
+    rows = []
+    for data in data_lastest:
+        rows.append([data.M, data.O_TIME, data.EPI_LAT, data.EPI_LON, data.EPI_DEPTH, data.LOCATION_C])
+    rows.reverse()
+    table.add(headers, rows)
+    table.set_global_opts(
+        title_opts=ComponentTitleOpts(title="最近五次地震", subtitle="（以最近一次更新数据为准）")
+    )
+    table.render(os.path.join(save_path, 'latest_5.html'))
 
 
 if __name__ == '__main__':

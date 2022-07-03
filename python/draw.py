@@ -13,19 +13,19 @@ from pyecharts.charts import Bar
 from pyecharts.charts import Line
 from pyecharts.charts import WordCloud
 from pyecharts.charts import Pie
-from pyecharts.faker import Faker
 from pyecharts.charts import Timeline
 from pyecharts import options as opts
 from pyecharts.globals import ThemeType
 
-#path = os.path.dirname(os.path.realpath(sys.executable))
-path = os.path.abspath('.')
+path = os.path.dirname(os.path.realpath(sys.executable))
+#path = os.path.abspath('.')
 save_path = os.path.join(path, 'map')
 log_path = os.path.join(path, 'log')
 f = open(os.path.join(log_path, 'draw.txt'), 'w')
 
 date_start = datetime.datetime.strptime("2000-01-01 01:01:01", "%Y-%m-%d %H:%M:%S")
 date_end = datetime.datetime.strptime("2200-01-01 01:01:01", "%Y-%m-%d %H:%M:%S")
+
 
 
 class EPI(Document):
@@ -270,7 +270,7 @@ def draw_pie_m_to_num(m):
 def draw_rank_list_dynamic(date, loc):
     for i in range(len(date)):
         date[i] = date[i][:4]
-    time_line = Timeline(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
+    time_line = Timeline(init_opts=opts.InitOpts(width="460px", height="380px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
     count = {}
     num = len(date)
     for i in range(num):
@@ -287,14 +287,14 @@ def draw_rank_list_dynamic(date, loc):
             x.reverse()
             y.reverse()
             bar = (
-                Bar(init_opts=opts.InitOpts(width="1200px", height="700px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
+                Bar(init_opts=opts.InitOpts(width="469px", height="380px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
                 .add_xaxis(x)
                 .add_yaxis("年地震次数", y)
                 .reversal_axis()
                 .set_global_opts(title_opts=opts.TitleOpts(title='频繁地震区域', subtitle="单位：次", pos_left='center', pos_top='top'),
                                  legend_opts=opts.LegendOpts(is_show=False),
                                  visualmap_opts=opts.VisualMapOpts(
-                                     is_show=True, pos_top='center', range_color=['lightskyblue', 'yellow', 'orangered'], min_=0, max_=9)
+                                     is_show=False, pos_top='center', range_color=['lightskyblue', 'yellow', 'orangered'], min_=0, max_=9)
                                  )
                 .set_series_opts(label_opts=opts.LabelOpts(is_show=True, position='right', color='white'))
 
@@ -381,23 +381,23 @@ if __name__ == '__main__':
         date.append(str(dt).split(' ')[0])
         time.append(str(dt).split(' ')[1])
     print("开始绘图", file=f)
-    #draw_pot_all_pot(lat, lon)
+    draw_pot_all_pot(lat, lon)
     print("绘制完点图", file=f)
-    #draw_pot_market_pot(lat, lon)
+    draw_pot_market_pot(lat, lon)
     print("绘制完带标记点图", file=f)
     draw_heat_map_static(m, lat, lon)
     print("绘制完静态热力图", file=f)
     draw_heat_map_dynamic(m, date, lat, lon, t='m')
     print("绘制完动态热力图", file=f)
-    #draw_line_time_to_num(date, t='m')
+    draw_line_time_to_num(date, t='m')
     print("绘制完时间与地震次数关系折线图", file=f)
-    #draw_line_m_to_num(m)
+    draw_line_m_to_num(m)
     print("绘制完震级与地震次数关系折线图", file=f)
-    #draw_word_cloud(loc)
+    draw_word_cloud(loc)
     print("绘制完地点云图", file=f)
-    #draw_pie_m_to_num(m)
+    draw_pie_m_to_num(m)
     print("绘制完震级饼图", file=f)
-    #draw_rank_list_dynamic(date, loc)
+    draw_rank_list_dynamic(date, loc)
     print("绘制动态排行", file=f)
     disconnect()
     f.close()
