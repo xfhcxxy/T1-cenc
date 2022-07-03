@@ -520,6 +520,7 @@
     <script src="js/fontscroll.js"></script>
     <script src="js/main.js"></script>
     <script src="js/echart.js"></script>
+    <script src="js/watch.js"></script>
     <script type="text/javascript">
 
       var flags = {
@@ -747,6 +748,10 @@ var markerArr2 = [
                                       $('#lon1').val()+"&-"+$('#lon2').val()+"&-"+ $('#dep1').val()+"&-"+$('#dep2').val();
 
         window.open(com, '_self');
+        setTimeout(function (){
+            document.getElementById('on_show').src=document.getElementById('on_show').src;
+            document.getElementById('top_show').src=document.getElementById('top_show').src;
+        }, 30000);
       }
       function update_data(){
         window.open("myprotocol-main://", '_self');
