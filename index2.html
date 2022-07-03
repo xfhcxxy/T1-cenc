@@ -16,18 +16,31 @@
     </style>
 </head>
 <body>
-    <div class="change-group">
+    <div class="main" id="appIndex">
+      <div class="header">
+        <img src="img/zgdztwdsjpt.png" alt="对中国地震台网进行大数据分析" />
+          <div class="change-group">
         <button type="button" onclick="window.location.href='index.html'">页面切换</button>
     </div>
-    <div class="map-group">
+        <div class="dateBox">
+          <span id="time"
+            >{{ year }}-{{ month }}-{{ date }}&nbsp;&nbsp; {{ hour }}:{{minute}}:{{ second }}&nbsp;&nbsp; {{ strDate }}
+          </span>
+        </div>
+      </div>
+    <div class="leftBox col-md-1">
         <span class="titleText">震级-次数图</span><br>
         <iframe id="m_show" src="python/map/line_m_to_num.html" width="1215px" height="715px" scrolling="No" style="border: none;"></iframe>
         <br><span class="titleText">时间-次数图</span><br>
         <iframe id="time_show" src="python/map/line_time_to_num.html" width="1215px" height="715px" scrolling="No" style="border: none;"></iframe>
         <br><span class="titleText">云图</span><br>
         <iframe id="cloud_show" src="python/map/word_cloud.html" width="1215px" height="715px" scrolling="No" style="border: none;"></iframe>
+
+    </div>
+        <div class="rightBox col-md-3">
         <br><span class="titleText">top10</span><br>
         <iframe id="top_show" src="python/map/rank_list_dynamic.html" width="1215px" height="715px" scrolling="No" style="border: none;"></iframe>
+        </div>
     </div>
 </body>
 </html>
