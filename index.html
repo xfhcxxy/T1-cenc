@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="./img/favicon.ico" />
-    <!-- <link rel="stylesheet" href="./fonts/font.css" /> -->
-
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/jq22.css" />
@@ -58,19 +56,7 @@
           </div>
         </div>
         <div class="middleBox col-md-8">
-          <!-- <div class="baiduMap">
-            <div id="container"></div>
-          </div> -->
           <iframe id="on_show" class="frame_style" src="python/map/heat_map_dynamic.html" width="1200px" height="700px" scrolling="No"></iframe>
-          <!--  heat_map_dynamic_flag:0,
-                heat_map_static_flag:0,
-                line_m_to_num_flag:0,
-                line_time_to_num_flag:0,
-                pie_m_to_num_flag:0,
-                pot_all_pot_flag:0,
-                pot_market_pot_flag:0,
-                word_cloud_flag:0 
-          -->
           <div class="tongjiList">
             <div class="bt_row1" onclick="change_to_line_time_to_num();setflag();">
               <img id="btrow1" src="img/时间次数图.png" style="height: 100px;width: 250px;transform: translate(0,-70px);"/>
@@ -89,9 +75,8 @@
         <div class="rightBox col-md-3">
           <div class="weihutj" >
             <div>
-              <div style="margin-left: 27px;" class="pfTitle">
-                <img style="margin-right: 10px;" src="img/whtj.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                <span class="titleText">查询</span>
+              <div style="margin-left: 20px;" class="pfTitle">
+                <p class="title" style="font-family:'楷体';font-size: 25px; font-weight:bold; color:white;line-height:10%;" >查询</p>
               </div>
               <form id="frm" action method="post" class="inquiry-form" target="_blank">
                 <div class="input-group">
@@ -401,50 +386,19 @@
                 </div>
                 <div class="input-group">
                   <button type="button" onclick="update_data()">更新数据</button>
-                </div>
-                  <div class="input-group">
-                  <button type="button" onclick="window.location.href='index2.html'">页面切换</button>
+                  <button type="button" onclick="window.location.href='https://news.ceic.ac.cn'">地震台网</button>
                 </div>
               </form>
             </div>
           </div>
           <div class="guzhangtj">
-            <div>
-              <div style="margin: 0 15px;position: relative;">
-                <div
-                  style="justify-content: flex-start;margin-bottom: 3px;"
-                  class="pfTitle"
-                >
-                  <img style="margin-right: 10px;" src="img/gzt.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                  <span class="titleText">默认设置</span>
-                </div>
                 <div class="basic-info">
-                  <div style="color:white">时间：按年滚动</div>
-                  <div style="color:white">地区：中国</div>
-                  <div style="color:white">震级：0级及以上</div>
+                  <iframe id="five_show" class="frame_style" src="python/map/latest_5.html" width="500px" height="380px" scrolling="No" style="border: none;"></iframe>
                 </div>
-
-
-                <!-- <img src="img/gztjs.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                <span class="spanfont"
-                  >11 &nbsp; 12 &nbsp; 13 &nbsp;11 &nbsp;12 &nbsp;13 &nbsp;
-                  15</span
-                > -->
-                <!-- <div
-                  style="display: flex;justify-content: center;margin-top: 10px;"
-                >
-                  <img src="img/zflft.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                  <span class="smtext">故障数量</span>
-                  <img src="img/zfright.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                  <span class="smtext">故障处理及时率</span>
-                </div> -->
-              </div>
-            </div>
           </div>
-            <div class="ranklist">
-                <span class="titleText">top10</span>
-                <iframe id="top_show" class="frame_style" src="python/map/rank_list_dynamic.html" width="460px" height="380px" scrolling="No"></iframe>
-            </div>
+          <div class="ranklist">
+                <iframe id="top_show" class="frame_style" src="python/map/rank_list_dynamic.html" width="460px" height="300px" scrolling="No"></iframe>
+          </div>
         </div>
       </div>
     </div>
