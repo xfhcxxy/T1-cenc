@@ -81,9 +81,9 @@
               <form id="frm" action method="post" class="inquiry-form" target="_blank">
                 <div class="input-group">
                   <label for>时间:</label>
-                  <input name="start" id="start" class="Wdate" style="width: 90px" type="text" onfocus="WdatePicker({lang:'zh-cn'})">
+                  <input name="start" id="start" class="Wdate" style="width: 90px" type="text" readonly="readonly" onfocus="WdatePicker({lang:'zh-cn'})">
                   至
-                  <input name="start" id="end" class="Wdate" style="width: 90px" type="text" onfocus="WdatePicker({lang:'zh-cn'})">
+                  <input name="start" id="end" class="Wdate" style="width: 90px" type="text" readonly="readonly" onfocus="WdatePicker({lang:'zh-cn'})">
                 </div>
                 <div class="input-group">
                   <label for>纬度：</label>
@@ -683,6 +683,9 @@ var markerArr2 = [
       }
       function update_data(){
         window.open("myprotocol-main://", '_self');
+        setTimeout(function (){
+          document.getElementById('five_show"').src=document.getElementById('five_show"').src;
+        }, 9000);
       }
       var map = new BMap.Map('container')
       // 创建地图实例

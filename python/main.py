@@ -30,8 +30,8 @@ EPI_DEPTH = []      # 深度(千米)
 LOCATION_C = []     # 参考位置
 
 
-path = os.path.dirname(os.path.realpath(sys.executable))
-#path = os.path.abspath('.')
+#path = os.path.dirname(os.path.realpath(sys.executable))
+path = os.path.abspath('.')
 save_path = os.path.join(path, 'map')
 
 
@@ -123,9 +123,23 @@ def main():
     for data in data_lastest:
         rows.append([data.M, data.O_TIME, data.EPI_LAT, data.EPI_LON, data.EPI_DEPTH, data.LOCATION_C])
     rows.reverse()
-    table.add(headers, rows)
+    table.add(headers, rows, attributes={
+        "align": "left",
+        "border": False,
+        "padding": "20px",
+        "style": "background: rgb(21, 28, 57); width:435px; height:200px;font-size:10px;color:#C0C0C0"
+    })
     table.set_global_opts(
-        title_opts=ComponentTitleOpts(title="最近五次地震", subtitle="（以最近一次更新数据为准）")
+        title_opts=ComponentTitleOpts(
+            title="最近五次地震",
+            subtitle="（以最近一次更新数据为准）",
+            title_style={
+                "style": "font-size:17px; color:#FFFFFF"
+            },
+            subtitle_style={
+                "style": "font-size:6px; color:#FFFFFF"
+            }
+        )
     )
     table.render(os.path.join(save_path, 'latest_5.html'))
 

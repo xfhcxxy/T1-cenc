@@ -270,7 +270,7 @@ def draw_pie_m_to_num(m):
 def draw_rank_list_dynamic(date, loc):
     for i in range(len(date)):
         date[i] = date[i][:4]
-    time_line = Timeline(init_opts=opts.InitOpts(width="460px", height="380px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
+    time_line = Timeline(init_opts=opts.InitOpts(width="440px", height="300px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
     count = {}
     num = len(date)
     for i in range(num):
@@ -287,7 +287,7 @@ def draw_rank_list_dynamic(date, loc):
             x.reverse()
             y.reverse()
             bar = (
-                Bar(init_opts=opts.InitOpts(width="469px", height="380px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
+                Bar(init_opts=opts.InitOpts(width="440px", height="380px", theme=ThemeType.DARK, bg_color="rgb(21, 28, 57)"))
                 .add_xaxis(x)
                 .add_yaxis("年地震次数", y)
                 .reversal_axis()
