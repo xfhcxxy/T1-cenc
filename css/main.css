@@ -50,20 +50,16 @@ body {
   display: flex;
 }
 .main .content .leftBox .pot_all_pot {
-  width: 100%;
-  height: 200px;
+  display: flex;
 }
 .main .content .leftBox .pot_market_pot {
-  width: 100%;
-  height: 200px;
+  display: flex;
 }
 .main .content .leftBox .heat_map_static {
-  width: 100%;
-  height: 200px;
+  display: flex;
 }
 .main .content .leftBox .line_time_to_num{
-  width: 100%;
-  height: 200px;
+  display: flex;
 }
 .main .content .leftBox .pingfen {
   padding-top: 20px;

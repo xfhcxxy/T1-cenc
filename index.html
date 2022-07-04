@@ -38,80 +38,22 @@
         <div class="leftBox col-md-1">
           <div class="pot_all_pot" onclick="change_to_pot_all_pot()">
             <div>
-              <div class='tri1'>
-
-              </div>
-
-              <div class='box'>
-                <!-- xw08
-                  <div class="pfTitle">
-                  <img src="img/aqpf.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" />
-                  <span class="titleText">地图展示</span>
-                </div>
-
-                <button onclick="change_to_pot_all_pot()">点图</button>
-                <button onclick="change_to_pot_market_pot()">带标记点图</button>
-                <button onclick="change_to_heat_map_static()">静态热力图</button>
-                <button onclick="change_to_heat_map_dynamic()">动态热力图</button> -->
-                <div  class="bt1" style="margin: 0 5px;position: relative;">
-                  <div style="justify-content: center;position: relative;top: 22px;" class="pfTitle">
-                    <span class="titleText">点图</span>
-                  </div>
-
-                  <!--  xw08
-                  <iframe src="python/map/line_time_to_num.html" frameborder=0 allowfullscreen></iframe>
-                  -->
-
-                </div>
-              </div>
-
-              <div class='tri2'>
-              </div>
+              <img id="btcol1" src="img/点图.png" style="height: 200px;width: 100px;transform: translate(30px,-50px);"/>
             </div>
           </div>
           <div class="pot_market_pot" onclick="change_to_pot_market_pot()">
             <div>
-              <div class='rtri1'>
-              </div>
-              <div class='box'>
-                  <div  class="bt-1" style="margin: 0 20px 0 0;position: relative;">
-                    <div class="pfTitle" style="width: 40px;white-space:pre-line;top: 22px;">
-                      <span class="titleText" style="font-size: 20px;">带标记点图</span>
-                    </div>
-                  </div>
-              </div>
-              <div class='rtri2'>
-              </div>
+              <img id="btcol2" src="img/带标记点图.png" style="height: 200px;width: 100px;transform: translate(30px,-50px);"/>
             </div>
           </div>
           <div class="heat_map_static" onclick="change_to_heat_map_static()">
             <div>
-              <div class='tri1'> 
-              </div>
-              <div class='box'>
-                  <div  class="bt1" style="position: relative;">
-                    <div style="width: 40px;white-space:pre-line;top: 22px;" class="pfTitle">
-                      <span class="titleText" style="font-size: 20px;">静态热力图</span>
-                    </div>
-                  </div>
-              </div>
-              <div class='tri2'>
-              </div>
+              <img id="btcol3" src="img/静态热力图.png" style="height: 200px;width: 100px;transform: translate(30px,-50px);"/>
             </div>
           </div>
           <div class="line_time_to_num" onclick="change_to_heat_map_dynamic()">
             <div>
-              <div class='rtri1'>
-              </div>
-              <div class='box'>
-                  <div  class="bt-1" style="margin: 0 20px 0 0;position: relative;">
-                    <div class="pfTitle" style="width: 40px;white-space:pre-line;top: 22px;">
-                      <span class="titleText" style="font-size: 20px;">动态热力图</span>
-                    </div>
-                  </div>
-              </div>
-              <div class='rtri2'>
-              </div>
+              <img id="btcol4" src="img/动态热力图.png  " style="height: 200px;width: 100px;transform: translate(30px,-50px);"/>
             </div>
           </div>
         </div>
@@ -131,16 +73,16 @@
           -->
           <div class="tongjiList">
             <div class="bt_row1" onclick="change_to_line_time_to_num();setflag();">
-              <img id="btrow1" src="img/时间次数图.png" style="height: 100px;width: 250px;transform: translate(0,-50px);"/>
+              <img id="btrow1" src="img/时间次数图.png" style="height: 100px;width: 250px;transform: translate(0,-70px);"/>
             </div>
             <div class="bt_row2"  onclick="change_to_line_m_to_num()">
-              <img id="btrow2" src="img/震级次数图.png" style="height: 100px;width: 250px;transform: translate(0,-50px);"/>
+              <img id="btrow2" src="img/震级次数图.png" style="height: 100px;width: 250px;transform: translate(0,-70px);"/>
             </div>
             <div class="bt_row3" onclick="change_to_pie_m_to_num()">
-              <img id="btrow3" src="img/震级饼图.png" style="height: 100px;width: 250px;transform: translate(0,-50px);"/>
+              <img id="btrow3" src="img/震级饼图.png" style="height: 100px;width: 250px;transform: translate(0,-70px);"/>
             </div>
             <div class="bt_row4" onclick="change_to_word_cloud()">
-              <img id="btrow4" src="img/震源云图.png" style="height: 100px;width: 250px;transform: translate(0,-50px);"/>
+              <img id="btrow4" src="img/震源云图.png" style="height: 100px;width: 250px;transform: translate(0,-70px);"/>
             </div>
           </div>
         </div>
@@ -677,22 +619,54 @@ var markerArr2 = [
         document.getElementById('btrow2').src="img/震级次数图.png"
         document.getElementById('btrow3').src="img/震级饼图.png"
         document.getElementById('btrow4').src="img/震源云图.png"
+        document.getElementById('btcol1').src="img/点图.png"
+        document.getElementById('btcol2').src="img/带标记点图.png"
+        document.getElementById('btcol3').src="img/静态热力图.png"
+        document.getElementById('btcol4').src="img/动态热力图.png"
       }
       function change_to_pot_all_pot(){
         document.getElementById('on_show').src="./python/map/pot_all_pot.html"
-        flags.pot_all_pot_flag^=1;
+        var imgid = document.getElementById('btcol1')
+        reset_all_bt()
+        flags.pot_all_pot_flag=1;
+        if(flags.pot_all_pot_flag){
+          imgid.src="img/点图按下.png"
+        }else{
+          imgid.src="img/点图.png"
+        }
       }
       function change_to_pot_market_pot(){
         document.getElementById('on_show').src="./python/map/pot_market_pot.html"
-        flags.pot_market_pot_flag^=1;
+        var imgid = document.getElementById('btcol2')
+        reset_all_bt()
+        flags.pot_market_pot_flag=1;
+        if(flags.pot_market_pot_flag){
+          imgid.src="img/带标记点图按下.png"
+        }else{
+          imgid.src="img/带标记点图.png"
+        }
       }
       function change_to_heat_map_static(){
         document.getElementById('on_show').src="./python/map/heat_map_static.html"
-        flags.heat_map_static_flag^=1;
+        var imgid = document.getElementById('btcol3')
+        reset_all_bt()
+        flags.heat_map_static_flag=1;
+        if(flags.heat_map_static_flag){
+          imgid.src="img/静态热力图按下.png"
+        }else{
+          imgid.src="img/静态热力图.png"
+        }
       }
       function change_to_heat_map_dynamic(){
         document.getElementById('on_show').src="./python/map/heat_map_dynamic.html"
-        flags.heat_map_dynamic_flag^=1;
+        var imgid = document.getElementById('btcol4')
+        reset_all_bt()
+        flags.heat_map_dynamic_flag=1;
+        if(flags.heat_map_dynamic_flag){
+          imgid.src="img/动态热力图按下.png"
+        }else{
+          imgid.src="img/动态热力图.png"
+        }
       }
       function change_to_line_time_to_num(){
         var imgid=document.getElementById('btrow1')
