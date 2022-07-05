@@ -184,22 +184,22 @@ body {
   align-items:center;
 }
 
-.main .content .rightBox .weihutj {
+.main .content .rightBox .chaxun {
   height: 195px;
   background: rgba(50, 72, 106, 0.2);
   margin-bottom: 18px;
 }
-.main .content .rightBox .weihutj > div {
+.main .content .rightBox .chaxun > div {
   height: 195px;
   width: 100%;
   border: 1px solid rgba(27, 146, 253, 0.5);
 }
-.main .content .rightBox .guzhangtj {
+.main .content .rightBox .latest_5 {
   height: 280px;
   background: rgba(50, 72, 106, 0.2);
   margin-bottom: 18px;
 }
-.main .content .rightBox .guzhangtj > div {
+.main .content .rightBox .latest_5 > div {
   height: 280px;
   width: 100%;
   border: 1px solid rgba(27, 146, 253, 0.5);
