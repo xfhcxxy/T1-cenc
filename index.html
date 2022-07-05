@@ -26,8 +26,8 @@
         />
         <img src="img/zgdztwdsjpt.png" alt="对中国地震台网进行大数据分析" />
         <div class="dateBox">
-          <span id="time"
-            >{{ year }}-{{ month }}-{{ date }}&nbsp;&nbsp; {{ hour }}:{{minute}}:{{ second }}&nbsp;&nbsp; {{ strDate }}
+          <span id="time">
+              {{ year }}-{{ month }}-{{ date }}&nbsp;&nbsp; {{ hour }}:{{minute}}:{{ second }}&nbsp;&nbsp; {{ strDate }}
           </span>
         </div>
       </div>
@@ -73,7 +73,7 @@
           </div>
         </div>
         <div class="rightBox col-md-3">
-          <div class="weihutj" >
+          <div class="chaxun" >
             <div>
               <div style="margin-left: 20px;" class="pfTitle">
                 <p class="title" style="font-family:'楷体';font-size: 25px; font-weight:bold; color:white;line-height:10%;" >查询</p>
@@ -382,7 +382,6 @@
                     <option>9.5</option>
                   </datalist>
                   <button type="button" onclick="open_draw()">查询</button>
-                  <!--<a href="myprotocol:// -$('#m1').val()" >查询</a> -->
                 </div>
                 <div class="input-group">
                   <button type="button" onclick="update_data()">更新数据</button>
@@ -391,7 +390,7 @@
               </form>
             </div>
           </div>
-          <div class="guzhangtj">
+          <div class="latest_5">
                 <div class="basic-info">
                   <iframe id="five_show" class="frame_style" src="python/map/latest_5.html" width="500px" height="380px" scrolling="No" style="border: none;"></iframe>
                 </div>
